@@ -57,21 +57,36 @@ class NaviBot():
 
     def strategy(self):
         r = rospy.Rate(5) # change speed 5fps
-
+        #0a
+        self.setGoal(-0.8,0,3.1415/2)
+        #a
+        self.setGoal(-0.8,0.5,3.1415/2)
+        self.setGoal(-0.8,0.5,0)
+        #b
         self.setGoal(-0.5,0,0)
-        self.setGoal(-0.5,0,3.1415/2)
-        
+        #c
         self.setGoal(0,0.5,0)
+        self.setGoal(0,0.5,-3.1415/2)
         self.setGoal(0,0.5,3.1415)
-        
-        self.setGoal(-0.5,0,-3.1415/2)
-        
+        #d
+        self.setGoal(0.5,0,3.1415)
+        #e
+        self.setGoal(0.8,0.5,3.1415)
+        self.setGoal(0.8,0.5,-3.1415/2)
+        #F
+        self.setGoal(0.8,-0.5,3.1415)
+        #G
         self.setGoal(0,-0.5,0)
+        self.setGoal(0,-0.5,3.1415/2)
         self.setGoal(0,-0.5,3.1415)
+        #h
+        self.setGoal(-0.8,-0.5,0)
+        self.setGoal(-0.8,-0.5,3.1415/2)
 
 
 
 if __name__ == '__main__':
     rospy.init_node('navirun')
     bot = NaviBot()
-    bot.strategy()
+    while True:
+        bot.strategy()
